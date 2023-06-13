@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detail_kriterias', function (Blueprint $table) {
+        Schema::create('landing_pages', function (Blueprint $table) {
             $table->id();
-            $table->string('kriteria_id')->references('id')->on('kriterias');
-            $table->integer('poin');
-            $table->string('keterangan');
-            $table->integer('poin_optional')->nullable();
-            $table->string('data_optional')->nullable();
+            $table->string('judul');
+            $table->string('deskripsi');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detail_kriterias');
+        Schema::dropIfExists('landing_pages');
     }
 };

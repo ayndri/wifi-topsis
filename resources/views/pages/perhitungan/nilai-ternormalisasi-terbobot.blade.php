@@ -16,7 +16,7 @@
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecepatan
+                                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecepatan
                                 </th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Jumlah Perangkat</th>
@@ -31,31 +31,60 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if (count($data) > 0)
-                            @foreach ($data as $d)
+                        @if (count($plan) > 0)
+                            @foreach ($plan as $p)
                             <tr>
                                 <td>
                                     <div class="d-flex px-3 py-1">
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">{{$d->nama}}</h6>
+                                            <h6 class="mb-0 text-sm">{{$p->name}}</h6>
                                         </div>
                                     </div>
                                 </td>
+                                @foreach ($data as $da)
+                                @if ($p->id == $da->plan_id)
+                                @if ($da->nama == 'Kecepatan')
                                 <td>
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->kecepatan}}</p>
+                                    <p class="text-sm text-center font-weight-bold mb-0">{{$da->nilai_ternormalisasi_terbobot}}</p>
                                 </td>
-                                <td class="align-middle text-center text-sm">
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->jumlah_perangkat}}</p>
+                                @endif
+                                @endif
+                                @if ($p->id == $da->plan_id)
+                                @if ($da->nama == 'Jumlah Perangkat')
+                                <td>
+                                    <p class="text-sm text-center font-weight-bold mb-0">{{$da->nilai_ternormalisasi_terbobot}}</p>
                                 </td>
-                                <td class="align-middle text-center text-sm">
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->harga}}</p>
+                                @endif
+                                @endif
+                                @if ($p->id == $da->plan_id)
+                                @if ($da->nama == 'Jenis IP')
+                                <td>
+                                    <p class="text-sm text-center font-weight-bold mb-0">{{$da->nilai_ternormalisasi_terbobot}}</p>
                                 </td>
-                                <td class="align-middle text-center text-sm">
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->jenis_layanan}}</p>
+                                @endif
+                                @endif
+                                @if ($p->id == $da->plan_id)
+                                @if ($da->nama == 'Rekomendasi Perangkat')
+                                <td>
+                                    <p class="text-sm text-center font-weight-bold mb-0">{{$da->nilai_ternormalisasi_terbobot}}</p>
                                 </td>
-                                <td class="align-middle text-center text-sm">
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->rekomendasi_perangkat}}</p>
+                                @endif
+                                @endif
+                                @if ($p->id == $da->plan_id)
+                                @if ($da->nama == 'Jenis Layanan')
+                                <td>
+                                    <p class="text-sm text-center font-weight-bold mb-0">{{$da->nilai_ternormalisasi_terbobot}}</p>
                                 </td>
+                                @endif
+                                @endif
+                                @if ($p->id == $da->plan_id)
+                                @if ($da->nama == 'Rasio Down/Up')
+                                <td>
+                                    <p class="text-sm text-center font-weight-bold mb-0">{{$da->nilai_ternormalisasi_terbobot}}</p>
+                                </td>
+                                @endif
+                                @endif
+                                @endforeach
                             </tr>
                             @endforeach
                             @else

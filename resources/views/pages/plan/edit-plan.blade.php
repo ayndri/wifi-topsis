@@ -34,6 +34,21 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Kecepatan</label>
+                                    <select id="kecepatan" class="form-select" name="kecepatan" aria-label="Default select example">
+                                        <option selected>Pilih Kecepatan</option>
+                                        @foreach ($kecepatan as $k)
+                                        <option @if ($data->kecepatan == $k->id)
+                                            selected
+                                        @endif data-optional="{{$k->data_optional}}" data-poin="{{$k->id}}" value="{{$k->id}}">{{$k->poin}} - {{$k->keterangan}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Kecepatan</label>
                                     <input class="form-control" type="number" step="0.01" name="kecepatan" value='{{$data->kecepatan}}'>
                                 </div>
                             </div>

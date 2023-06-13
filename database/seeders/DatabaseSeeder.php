@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class DatabaseSeeder extends Seeder
@@ -17,10 +18,16 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert([
             'username' => 'admin',
-            'firstname' => 'Admin',
-            'lastname' => 'Admin',
+            'name' => 'Admin',
             'email' => 'admin@argon.com',
-            'password' => bcrypt('secret')
+            'password' => bcrypt('secret'),
+            'role' => 'superadmin',
+            'last_login' => Carbon::now(),
+        ]);
+
+        DB::table('landing_pages')->insert([
+            'judul' => 'Metode Topsis',
+            'deskripsi' => 'Ini deskripsi'
         ]);
     }
 }

@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-@include('layouts.navbars.auth.topnav', ['title' => 'Plan Wifi'])
+@include('layouts.navbars.auth.topnav', ['title' => 'User'])
 <div class="row mt-4 mx-4">
     <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0">
                 <div class="d-flex align-items-center">
-                    <h6>Plan</h6>
-                    <a href="{{route('plan.form')}}" class="btn btn-primary btn-sm ms-auto">Add New</a>
+                    <h6>User</h6>
+                    <a href="{{route('user.form')}}" class="btn btn-primary btn-sm ms-auto">Add New</a>
                 </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -17,52 +17,40 @@
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Kecepatan
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Username
                                 </th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Jumlah Perangkat</th>
+                                    Email</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Jenis IP</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Rekomendasi Perangkat</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Jenis Layanan</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Rasio Down/Up</th>
+                                    Role</th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @if (count($data) > 0)
-                            @foreach ($data as $d)
+                            @if (count($user) > 0)
+                            @foreach ($user as $u)
                             <tr>
                                 <td>
                                     <div class="d-flex px-3 py-1">
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">{{$d->nama}}</h6>
+                                            <h6 class="mb-0 text-sm">{{$u->name}}</h6>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->kecepatan}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">{{$u->username}}</p>
                                 </td>
                                 <td class="align-middle text-center text-sm">
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->jumlah_perangkat}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">{{$u->email}}</p>
                                 </td>
                                 <td class="align-middle text-center text-sm">
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->harga}}</p>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->jenis_layanan}}</p>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <p class="text-sm font-weight-bold mb-0">{{$d->rekomendasi_perangkat}}</p>
+                                    <p class="text-sm font-weight-bold mb-0">{{$u->role}}</p>
                                 </td>
                                 <td class="align-middle text-end">
                                     <div class="d-flex px-3 py-1 justify-content-center align-items-center">
-                                        <p class="text-sm font-weight-bold mb-0"><a href="/plan/edit/{{ $d->id }}">Edit</a></p>
-                                        <p class="text-sm font-weight-bold mb-0 ps-2"><a href="/plan/hapus/{{ $d->id }}">Delete</a></p>
+                                        <p class="text-sm font-weight-bold mb-0"><a href="/user/edit/{{ $u->id }}">Edit</a></p>
+                                        <p class="text-sm font-weight-bold mb-0 ps-2"><a href="/user/hapus/{{ $u->id }}">Delete</a></p>
                                     </div>
                                 </td>
                             </tr>

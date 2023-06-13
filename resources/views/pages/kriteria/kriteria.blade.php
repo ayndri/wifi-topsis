@@ -8,7 +8,7 @@
             <div class="card-header pb-0">
                 <div class="d-flex align-items-center">
                     <h6>Kriteria</h6>
-                    <a href="/add-kriteria" class="btn btn-primary btn-sm ms-auto">Add New</a>
+                    <a href="{{ route('kriteria.form') }}" class="btn btn-primary btn-sm ms-auto">Add New</a>
                 </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
@@ -50,7 +50,7 @@
                                 <td class="align-middle text-end">
                                     <div class="d-flex px-3 py-1 justify-content-center align-items-center">
                                         <p class="text-sm font-weight-bold mb-0"><a href="/kriteria/edit/{{ $d->id }}">Edit</a></p>
-                                        <p class="text-sm font-weight-bold mb-0 ps-2"><a href="/kriteria/hapus/{{ $d->id }}">Delete</a></p>
+                                        <!-- <p class="text-sm font-weight-bold mb-0 ps-2"><a href="/kriteria/hapus/{{ $d->id }}">Delete</a></p> -->
                                         <p class="text-sm font-weight-bold mb-0 ps-2"><a href="/kriteria/detail/{{ $d->id }}">Detail</a></p>
                                     </div>
                                 </td>

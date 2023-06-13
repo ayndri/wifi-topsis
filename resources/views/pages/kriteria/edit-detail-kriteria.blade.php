@@ -7,11 +7,11 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <form role="form" method="POST" action={{ route('kriteria.addDetail') }} enctype="multipart/form-data">
+                <form role="form" method="POST" action="{{route('detail.update', $kriteria->id)}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-header pb-0">
                         <div class="d-flex align-items-center">
-                            <p class="mb-0">Detail Kritera {{$data->nama}}</p>
+                            <p class="mb-0">Detail Kriteria {{$data->nama}}</p>
                             <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
                         </div>
                     </div>
@@ -20,20 +20,26 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Poin</label>
-                                    <input class="form-control" type="number" name="poin" value="">
+                                    <input class="form-control" type="number" name="poin" value="{{$kriteria->poin}}">
                                 </div>
                             </div>
                             <input class="form-control" type="hidden" name="kriteria_id" value="{{$data->id}}">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Keterangan</label>
-                                    <input class="form-control" type="text" name="keterangan" value="">
+                                    <input class="form-control" type="text" name="keterangan" value="{{$kriteria->keterangan}}">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="example-text-input" class="form-control-label">Poin Optional</label>
+                                    <input class="form-control" type="text" name="poin_optional" value="{{$kriteria->poin_optional}}">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Optional</label>
-                                    <input class="form-control" type="text" name="data_optional" value="">
+                                    <input class="form-control" type="text" name="data_optional" value="{{$kriteria->data_optional}}">
                                 </div>
                             </div>
                         </div>

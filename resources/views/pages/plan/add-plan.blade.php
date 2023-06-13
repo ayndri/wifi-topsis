@@ -36,7 +36,7 @@
                                     <select id="kecepatan" class="form-select" name="kecepatan" aria-label="Default select example">
                                         <option selected>Pilih Kecepatan</option>
                                         @foreach ($kecepatan as $k)
-                                        <option data-optional="{{$k->data_optional}}" value="{{$k->poin}}">{{$k->poin}} - {{$k->keterangan}}</option>
+                                        <option data-optional="{{$k->data_optional}}" data-poin="{{$k->id}}" value="{{$k->id}}">{{$k->poin}} - {{$k->keterangan}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -46,7 +46,8 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">Rekomendasi Perangkat</label>
-                                    <input id="rekom_perangkat" readonly class="form-control" type="text" name="rekomendasi_perangkat" value="">
+                                    <input id="rekom_perangkat" readonly class="form-control" type="text" name="" value="">
+                                    <input id="poin_rekom_perangkat" hidden readonly class="form-control" type="text" name="rekomendasi_perangkat" value="">
                                 </div>
                             </div>
                         </div>
@@ -56,11 +57,11 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="example-text-input" class="form-control-label">{{$k->nama}}</label>
-                                    <select id="{{str_replace(' ', '_', strtolower($k->nama))}}" class="form-select" name="{{str_replace(' ', '_', strtolower($k->nama))}}" aria-label="Default select example">
+                                    <select id="{{str_replace(array(' ', '/'), '_', strtolower($k->nama))}}" class="form-select" name="{{str_replace(array(' ', '/'), '_', strtolower($k->nama))}}" aria-label="Default select example">
                                         <option selected>Pilih {{$k->nama}}</option>
                                         @foreach ($detailKriteria as $dk)
                                         @if ($dk->kriteria_id == $k->id)
-                                        <option data-optional="{{$dk->data_optional}}" value="{{$dk->poin}}">{{$dk->poin}} - {{$dk->keterangan}}</option>
+                                        <option data-optional="{{$dk->data_optional}}" value="{{$dk->id}}">{{$dk->poin}} - {{$dk->keterangan}}</option>
                                         @endif
                                         @endforeach
                                     </select>
@@ -83,6 +84,8 @@
         e.preventDefault();
         var poin = $('#kecepatan').val();
         var rekomen = $('#kecepatan').find(':selected').data("optional");
+        var poin_rekomen = $('#kecepatan').find(':selected').data("poin");
         $('#rekom_perangkat').val(rekomen)
+        $('#poin_rekom_perangkat').val(poin_rekomen)
     });
 </script>
